@@ -1,1 +1,1 @@
-example of git merge --no-ff 
+example of git merge --no-ff <rama>
