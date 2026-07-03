@@ -12,4 +12,8 @@ git stash drop <stash@{N}> (Eliminar un stash especifico de la lista)
 git stash clear (limpia todos los stash)
 git stash branch <name-branch> <stash@{N}> (crea y aplica los cambios en una rama, el stash debe existir)
 
- git branch -D || git branch -d (elimina la rama con -d o forzar con -D )
+git branch -D || git branch -d (elimina la rama con -d o forzar con -D )
+
+git restore --staged <file> (saca los cambios de un archivo del staging area, regresaria al working directory)
+git reset HEAD~ (deshacer el ultimo commit hecho y llevarlo al working)
+git commit --amend (modifica el contenido del mensaje del commit o se pueden agregar nuevos archivos al commit)
