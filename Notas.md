@@ -17,3 +17,7 @@ git branch -D || git branch -d (elimina la rama con -d o forzar con -D )
 git restore --staged <file> (saca los cambios de un archivo del staging area, regresaria al working directory)
 git reset HEAD~ (deshacer el ultimo commit hecho y llevarlo al working)
 git commit --amend (modifica el contenido del mensaje del commit o se pueden agregar nuevos archivos al commit)
+
+# Ejemplo para agregar un archivo nuevo a un commit
+git add Notas.md
+git commit --amend --no-edit

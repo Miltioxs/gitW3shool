@@ -115,3 +115,5 @@ The Three Areas of Git
 
 Workflow Diagram
 [Working Directory] --git add--> [Staging Area] --git commit--> [Repository]
+
+TEST git commit --amend 
