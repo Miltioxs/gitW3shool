@@ -107,3 +107,11 @@ Here are some common use cases:
     Regularly merge changes from the main branch to keep your branch up-to-date.
     Delete branches that are no longer needed to keep your repository clean.
 
+The Three Areas of Git
+
+    Working Directory: Where you make changes to your files.
+    Staging Area (Index): Where you prepare changes before committing.
+    Repository: Where your committed history is stored.
+
+Workflow Diagram
+[Working Directory] --git add--> [Staging Area] --git commit--> [Repository]
