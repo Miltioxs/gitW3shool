@@ -117,3 +117,14 @@ Workflow Diagram
 [Working Directory] --git add--> [Staging Area] --git commit--> [Repository]
 
 TEST git commit --amend 
+
+# Summary of Git Best Practices
+
+    Commit Often
+    Write Clear Commit Messages
+    Use Branches
+    Pull Before You Push
+    Review Changes Before Committing
+    Keep Repositories Small
+    Use .gitignore
+    Tag Releases

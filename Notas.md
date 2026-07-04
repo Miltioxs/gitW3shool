@@ -19,5 +19,17 @@ git reset HEAD~ (deshacer el ultimo commit hecho y llevarlo al working)
 git commit --amend (modifica el contenido del mensaje del commit o se pueden agregar nuevos archivos al commit)
 
 # Ejemplo para agregar un archivo nuevo a un commit
-git add Notas.md
-git commit --amend --no-edit
+1. git add Notas.md
+2. git commit --amend --no-edit (para no editar el mensaje del commit --no-edit)
+
+
+Estudiar git rebase 
+
+Summary of SSH Concepts and Commands
+
+    SSH key pair - A public and private key for secure access
+    ssh-keygen - Generate a new SSH key pair
+    ssh-add - Add your private key to the SSH agent
+    ssh -T git@github.com - Test SSH connection
+    ssh-add -l - List loaded SSH keys
+    ssh-add -d - Remove a key from agent
