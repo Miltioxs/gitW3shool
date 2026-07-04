@@ -38,3 +38,8 @@ cat ~/.ssh/id_rsa.pub (copiar mi llave publica)
 ssh-add -l (listar las llaves cargadas al agente ssh)
 
 ssh -T git@github.com (probar conexion luego de haber agregar la llave ssh en github)
+
+git remote add origin git@github.com:Miltioxs/gitW3shool.git (agregar el origen remoto por primera vez)
+git remote set-url origin git@github.com:Miltioxs/gitW3shool.git (actualizar remoto para usar ssh)
+
+git push --set-upstream origin main ()
