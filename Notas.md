@@ -22,9 +22,6 @@ git commit --amend (modifica el contenido del mensaje del commit o se pueden agr
 1. git add Notas.md
 2. git commit --amend --no-edit (para no editar el mensaje del commit --no-edit)
 
-
-Estudiar git rebase 
-
 Summary of SSH Concepts and Commands
 
     SSH key pair - A public and private key for secure access
@@ -33,3 +30,11 @@ Summary of SSH Concepts and Commands
     ssh -T git@github.com - Test SSH connection
     ssh-add -l - List loaded SSH keys
     ssh-add -d - Remove a key from agent
+
+eval $(ssh-agent -s) (habilitar ssh agent en WSL)
+ssh-keygen -t rsa -b 4096 -C "x" (generar ssh key)
+ssh-add ~/.ssh/id_rsa (a;adir el key a mi agente ssh)
+cat ~/.ssh/id_rsa.pub (copiar mi llave publica)
+ssh-add -l (listar las llaves cargadas al agente ssh)
+
+ssh -T git@github.com (probar conexion luego de haber agregar la llave ssh en github)
