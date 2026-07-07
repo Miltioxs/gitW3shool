@@ -192,3 +192,128 @@ git recovery
             5. Custom Diff for Markdown - *.md diff=markdown
             6. Check Attributes of a File - git check-attr --all README.md
             7. Ignore Files on Export - docs/* export-ignore
+
+git LFS
+    Large File Storage (LFS): extension for git that helps manage large files (like videos, images, or dataset) efficiently
+
+    Instead of storing biug files directly in repository, LFS stores a small pointer file in repo and keeps the real content on a separate server. 
+
+    That keeps the repo fast and small
+
+    Every one who clones the repo gets the pointer, and Git LFS fetches the real file content as needed. 
+
+    when to use
+        - need to version large files
+        - the project exceeds the file size limits of standard git hosting
+        - want to keep your repository size manageable and fast
+    
+    installation
+        1. download  git-lfs.github.com.
+        2. Initialize LFS in the repository git lfs install
+    
+    Track files
+        examples
+            git lfs track "*.psd"
+            git lfs track "*.zip"
+            git lfs track "images/*.{png,jpg}"
+
+    Check LFS Status
+        git lfs ls-files
+    
+    Untrack/Remove Files 
+        1. Edit .gitattributes
+        2. or Run the untrack command - git lfs untrack "*.psd" -> git add .gitattributes
+
+    Tips & Best Practices
+        Use LFS only for files that are too large or change too often for regular git 
+        check if your hosting provider supports LFS before using it
+        Monitor your LFS storage quota
+
+git signing
+    Signing a commit is like putting your personal signature on your work
+
+    What is GPG?
+        GPG (GNU Privacy Guard) is a tool taht lets you create a digital key, kind of like a secret pwd, to sign things
+
+        git uses GPG keys to sign commits and tags
+
+        This helps prove your identity and ensures your code hasn't been tampered with.
+
+    Why and When Should You Sign Commits?
+        - To prove your commits really came from you
+        - To help others trust your code (especially in open source projects)
+        - Some companies or projects require signed commits for security
+        - If you don't sign, your commits are still valid, just not verified
+    
+    How to Set Up Commit Signing
+        Create a GPG key (if you don't have one):
+            gpg --full-generate-key
+
+        Find your key ID 
+            gpg --list-secret-keys --keyid-format=long
+        
+        Set Signing Key
+            git config --global user.signingkey <your-key-id>
+
+        How to Sign Commits and Tags
+            To sign a commit, use:
+                git commit -S -m "message"
+
+            To sign a tag, use:
+                git tag -s v1.0 -m "version 1.0"
+        
+        Sign All Commits Automatically
+            git config --global commit.gpgSign true
+        
+        How to Check if a Commit is Signed
+            git log --show-signature
+
+git cherry-pick & Patch
+
+    cherry-pick 
+        lets you copy a single commit from one branch to another. 
+    
+    Patch
+        is a file with changes from one or more commits. you can share a patch or apply it ot another repository, even if it's'unrelated to your own
+
+    when use
+        cherry-pick
+            to copy a commit between branches in the same repository 
+        patches 
+            to share changes as files, or when working across different repositories 
+    
+    How to Cherry-pick a Commit 
+        Cherry-pick a Commit - git cherry-pick abc1234
+    
+    Edit the Commit Message
+        git cherry-pick abc1234 --edit
+    
+    Apply Without Committing
+        git cherry-pick abc1234 --no-commit
+    
+    Add Commit Origin
+        Use -x to add a line to the commit message showing where the commit came from:
+        git cherry-pick abc1234 -x
+    
+    Handling Conflicts
+        If there are conflicts, Git will pause and ask you to fix them. After fixing, run:
+        1. git add .
+        2. git cherry-pick --continue
+    
+    Abort Cherry-pick
+        git cherry-pick --abort
+
+    How to Create a Patch
+        git format-patch -1 abc1234
+
+        Multiple Commits
+            git format-patch HEAD~3
+        
+        How to Apply a Patch
+            git apply 0001-some-change.patch
+
+        Apply a Patch and Keep Metadata
+            git am 0001-some-change.patch
+        
+        Reverse a Patch
+            git apply -R 0001-some-change.patch
