@@ -88,3 +88,45 @@ git reset (mueve mi rama a un diferente commit)
     git rest <file> Unstage un archivo
 
     git long --online Muestra el historial de commits 
+
+git Amend 
+    Habilita la modifica del commit mas reciente 
+
+    Cuando usarlo: 
+        Necesidad de hacer cambios peque;os al ultimo commit
+        Corregir errores, 
+        Agregar archivos olvidados, faltantes
+        Actualizar el mensaje del commit
+
+        git commit --amend -m "mensaje"
+
+    Remover Archivo del ultimo commit
+        1. git reset HEAD^ -- <file> remueve el archivo del staging area
+        2. git commit --amend
+
+git rebase
+
+    Rebasing mueve o combina una secuencia de commit en una nuevo commit
+
+    Usado para 
+        Limpiar
+        Tener un historial lineal del proyecto
+    
+    Cuando usar rebase: 
+        Mantener limpio, historial del proyecto lineal
+        Evitar merge commit innecesarios
+        Combinar multiple commits en uno solo
+        Editar o reordenar commits 
+    
+    Ejemplo
+        git checkout feature-branch
+        git rebase main
+
+    git rebase -i <base> Interactive Rebase -- edit, reorder, squash or fix up commits before a certain point. 
+
+    git rebase -i HEAD~3
+        open an editor where you can
+            pick keep the commit as is 
+            squash combine commits together
+            edit pause to change a commit 
+            reword change just the commit message
