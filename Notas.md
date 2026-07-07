@@ -130,3 +130,65 @@ git rebase
             squash combine commits together
             edit pause to change a commit 
             reword change just the commit message
+
+    git rebase --continue 
+    git reabse --abort 
+    git rebase --skip 
+
+git reflog
+    recover lost commits or changes
+    
+    git reflog expire --expire=30.days refs/heads/main
+    git gc --prune=now
+
+git recovery 
+    means getting back lost commits, branches or files
+
+    git keeps a record of recent changes so you can undo mistakes-even after a reset or delete 
+
+    cuando usar
+        Accidentalmente eliminar un branch o un file 
+        Reset your branch a un commit previo y lose changes
+        Necesidad de recuperar commits o cambios perdidos
+    
+    git reflog
+
+    q -b branch-name <commit-hash> -- Restore a deleted branch, if you deleted a branch but the commits are still in reflog, you can recreate it
+
+    Recover a deleted od changed file 
+        git restore filename.txt 
+    
+    Recover from a hard reset 
+        1. git reflog 
+        2. git reset --hard HEAD@{2}
+
+.gitattributes
+    special file that tells how to handle specific file in repositories
+
+    controls things: 
+        - line endings
+        - file types 
+        - merge behavior
+        - custom diff tools
+        - ...
+
+    when to use
+        - enforce consistent line endings across different OS
+        - mark files as binary 
+        - enable git LFS for large files
+        - set up custom diff or merge tools for special file types
+        - control how files are exported in archives
+    
+    Create or Edit:
+        1. go to the root of your repository
+        2. create or edit the .gitattributes file
+        3. Add rules, one per line, for git should treat files
+    
+        examples:
+            1. Force Unix Line Endings for All Text Files - *.txt text eol=lf
+            2. Set LF for Shell Scripts - *.sh text eol=lf
+            3. Mark PNG Files as Binary - *.png binary
+            4. Track PSD Files with LFS - *.psd filter=lfs diff=lfs merge=lfs -text
+            5. Custom Diff for Markdown - *.md diff=markdown
+            6. Check Attributes of a File - git check-attr --all README.md
+            7. Ignore Files on Export - docs/* export-ignore
